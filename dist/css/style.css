@@ -1,5 +1,27 @@
-h1 {
-  color: red;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #25434d;
+}
+
+.layout-margin-nav {
+  margin: 1rem 10rem;
+}
+
+nav i {
+  font-size: 4rem;
+  margin-right: 1rem;
+  color: #63bc73;
+}
+nav span {
+  color: white;
+  font-size: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */

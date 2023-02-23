@@ -1,3 +1,29 @@
-h1 {
-  color: red;
+@import "variables";
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: map-get($colours, background);
+}
+
+.layout-margin-nav {
+  margin: 1rem 10rem;
+}
+
+nav {
+  & i {
+    font-size: 4rem;
+    margin-right: 1rem;
+    color: map-get($colours, primary);
+  }
+
+  & span {
+    color: white;
+    font-size: 2rem;
+  }
 }
