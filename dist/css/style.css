@@ -10,6 +10,11 @@ body {
   background-color: #25434d;
 }
 
+h1,
+h2 {
+  color: white;
+}
+
 button {
   background: none;
   color: inherit;
@@ -47,6 +52,11 @@ nav span {
   font-size: 2rem;
 }
 
+.form-control {
+  display: flex;
+  flex-direction: column;
+}
+
 .justify-align-center {
   display: flex;
   justify-content: center;
@@ -58,16 +68,17 @@ nav span {
   flex-direction: column;
 }
 .hero-container h1 {
-  color: white;
   font-size: 5rem;
   margin-bottom: 2rem;
 }
 .hero-container .sign-in-btn {
+  padding: 20px 42px;
   width: 150px;
   height: 50px;
   border-radius: 20px 0px 0px 20px;
 }
 .hero-container .create-account-btn {
+  padding: 20px 22px;
   width: 150px;
   height: 50px;
   border-radius: 0px 20px 20px 0px;
