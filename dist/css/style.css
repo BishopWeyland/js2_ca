@@ -118,12 +118,14 @@ input:focus {
   margin-bottom: 2rem;
 }
 .hero-container .sign-in-btn {
+  display: inline-block;
   padding: 20px 42px;
   width: 150px;
   height: 50px;
   border-radius: 20px 0px 0px 20px;
 }
 .hero-container .create-account-btn {
+  display: inline-block;
   padding: 20px 22px;
   width: 150px;
   height: 50px;
