@@ -8,6 +8,8 @@
 
 body {
   background-color: #25434d;
+  color: white;
+  font-size: 15px;
 }
 
 h1,
@@ -27,6 +29,13 @@ button {
 
 .btn {
   background-color: #63bc73;
+  opacity: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  height: 35px;
 }
 .btn:hover {
   background-color: black;
@@ -36,6 +45,18 @@ button {
 .btn-secondary {
   background-color: #497482;
   color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.link-underline {
+  border-bottom: 2px solid #63bc73;
+}
+.link-underline:hover {
+  border-bottom: 2px solid white;
 }
 
 .layout-margin-nav {
@@ -53,14 +74,39 @@ nav span {
 }
 
 .form-control {
-  display: flex;
-  flex-direction: column;
+  margin: 35px 0px;
+}
+
+label {
+  margin-bottom: 10px;
+  color: white;
+}
+
+input {
+  font-size: 20px;
+  padding-left: 10px;
+  color: white;
+  border: none;
+  background-color: #497482;
+  opacity: 0.6;
+  height: 35px;
+  width: 500px;
+  border-radius: 3px;
+}
+input:focus {
+  outline: none;
+  opacity: 1;
 }
 
 .justify-align-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-container {
