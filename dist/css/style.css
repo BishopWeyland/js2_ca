@@ -53,6 +53,7 @@ a {
 }
 
 .link-underline {
+  margin: 1rem 0rem 5rem;
   border-bottom: 2px solid #63bc73;
 }
 .link-underline:hover {
@@ -130,6 +131,10 @@ input:focus {
   width: 150px;
   height: 50px;
   border-radius: 0px 20px 20px 0px;
+}
+
+.margin-bottom {
+  margin-bottom: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */

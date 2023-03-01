@@ -58,6 +58,7 @@ a {
 }
 
 .link-underline {
+  margin: 1rem 0rem 5rem;
   border-bottom: 2px solid map-get($colours, primary);
 
   &:hover {
@@ -147,3 +148,6 @@ input {
 }
 
 // sign-in
+.margin-bottom {
+  margin-bottom: 1rem;
+}
