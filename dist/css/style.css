@@ -17,6 +17,10 @@ h2 {
   color: white;
 }
 
+ul {
+  list-style: none;
+}
+
 button {
   background: none;
   color: inherit;
@@ -64,6 +68,11 @@ a {
   margin: 1rem 10rem;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 nav i {
   font-size: 4rem;
   margin-right: 1rem;
@@ -135,6 +144,16 @@ input:focus {
 
 .margin-p {
   margin: 5rem 0rem 1rem;
+}
+
+.menu-ul i {
+  font-size: 1.5rem;
+}
+.menu-ul ul {
+  display: flex;
+}
+.menu-ul li {
+  margin-right: 5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -21,6 +21,10 @@ h2 {
   color: white;
 }
 
+ul {
+  list-style: none;
+}
+
 button {
   background: none;
   color: inherit;
@@ -71,6 +75,10 @@ a {
 }
 
 nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   & i {
     font-size: 4rem;
     margin-right: 1rem;
@@ -150,4 +158,20 @@ input {
 // sign-in
 .margin-p {
   margin: 5rem 0rem 1rem;
+}
+
+// feed
+
+.menu-ul {
+  & i {
+    font-size: 1.5rem;
+  }
+
+  & ul {
+    display: flex;
+  }
+
+  & li {
+    margin-right: 5rem;
+  }
 }
