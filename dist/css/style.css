@@ -177,4 +177,22 @@ textarea:focus {
   width: 300px;
 }
 
+.post {
+  background-color: #497482;
+  width: 500px;
+  height: 200px;
+  padding: 40px;
+  margin-bottom: 20px;
+}
+.post img {
+  max-height: 200px;
+}
+
+.user-info img {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 /*# sourceMappingURL=style.css.map */
