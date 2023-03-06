@@ -210,9 +210,13 @@ textarea {
 }
 
 .user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   & img {
-    height: 70px;
-    width: 70px;
+    margin-right: 1rem;
+    height: 60px;
+    width: 60px;
     object-fit: cover;
     border-radius: 50%;
   }
