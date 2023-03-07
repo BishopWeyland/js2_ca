@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://nf-api.onrender.com";
+const API_BASE_URL = "https://api.noroff.dev";
 
 async function registerUser(url, data) {
   try {

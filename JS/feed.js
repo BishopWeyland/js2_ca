@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://nf-api.onrender.com";
+const API_BASE_URL = "https://api.noroff.dev";
 const feed = document.querySelector(".feed-container");
 
 async function getWithToken(url) {
@@ -14,12 +14,10 @@ async function getWithToken(url) {
 
     const response = await fetch(url, fetchOptions);
     const json = await response.json();
-
+    console.log(json);
     feed.innerHTML = "";
 
     for (let i = 0; i < json.length; i++) {
-      console.log(json[i]);
-
       feed.innerHTML += `
       <div class="post">
         <div class="user-info">

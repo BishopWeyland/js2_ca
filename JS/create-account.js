@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://nf-api.onrender.com";
+const API_BASE_URL = "https://api.noroff.dev";
 
 async function registerUser(url, data) {
   try {
@@ -32,5 +32,5 @@ createUser.addEventListener("submit", (e) => {
     password: createUser.password.value,
   };
 
-  registerUser(`${API_BASE_URL}/api/v1/auction/auth/register`, userData);
+  registerUser(`${API_BASE_URL}/api/v1/social/auth/register`, userData);
 });
