@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/3f8b4b390b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="layout-margin-nav">
+      <nav>
+        <a href="index.html" class="logo">
+          <i class="fa-solid fa-note-sticky"></i><span>Page.</span>
+        </a>
+        <div class="menu-ul">
+          <ul>
+            <li>
+              <a href="#"><i class="fa-sharp fa-solid fa-comments"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-bell"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-user"></i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="justify-align-center">
+      <div class="post-container">
+        <form action="" id="create-post">
+              <div class="form-control flex-column">
+                        <input name="title" id="title" placeholder="Post title.">
+                    </div>
+          <div class="form-control flex-column">
+            <textarea name="body" id="body"
+              placeholder="What are you thinking about?"
+              name="create-post"
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
+          </div>
+          <input type="submit" value="Post" id="post-button" class="btn" />
+        </form>
+      </div>
+    </div>
+    <div class="justify-align-center">
+      <div class="single-entry-container"></div>
+    </div>
+
+    <script src="./JS/single-entry.js"></script>
+  </body>
+  </body>
+</html>

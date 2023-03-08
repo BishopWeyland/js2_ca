@@ -24,8 +24,10 @@ async function getWithToken(url) {
             <img src="${json[i].author.avatar}">
             <h2>${json[i].author.name}</h2>
         </div>
-        <p>${json[i].title}</p>
-        <p>${json[i].body}</p>
+         <a href="single-entry.html?id=${json[i].id}">
+             <p>${json[i].title}</p>
+            <p>${json[i].body}</p>
+         </a>
       </div>`;
     }
   } catch (error) {

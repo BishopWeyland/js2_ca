@@ -40,10 +40,3 @@ postContent.addEventListener("submit", (e) => {
 
   createPost(`${URL}/api/v1/social/posts`, postData);
 });
-
-// const postContent = {
-//   title: "new test",
-//   body: "This is a test...",
-//   media: "",
-//   tags: ["test"],
-// };
