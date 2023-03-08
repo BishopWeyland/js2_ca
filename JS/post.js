@@ -19,19 +19,31 @@ const createPost = async (url, data) => {
         tags: data.tags,
       }),
     });
-    const postData = await res.json();
-    return postData;
+    const json = await res.json();
+    return json;
   } catch (error) {
     console.log(error);
     throw error;
+  } finally {
+    postContent.reset();
   }
 };
 
-const postContent = {
-  title: "new test",
-  body: "This is a test...",
-  media: "",
-  tags: ["test"],
-};
+const postContent = document.querySelector("#create-post");
 
-// createPost(`${URL}/api/v1/social/posts`, postContent);
+postContent.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const postData = {
+    title: postContent.title.value,
+    body: postContent.body.value,
+  };
+
+  createPost(`${URL}/api/v1/social/posts`, postData);
+});
+
+// const postContent = {
+//   title: "new test",
+//   body: "This is a test...",
+//   media: "",
+//   tags: ["test"],
+// };
