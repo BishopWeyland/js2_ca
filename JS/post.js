@@ -28,10 +28,9 @@ const createPost = async (url, data) => {
 };
 
 const postContent = {
-  title: "test post",
+  title: "new test",
   body: "This is a test...",
-  media:
-    "https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80",
+  media: "",
   tags: ["test"],
 };
 

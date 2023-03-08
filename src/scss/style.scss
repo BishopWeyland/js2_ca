@@ -193,6 +193,13 @@ textarea {
   }
 }
 
+form {
+  margin-bottom: 30px;
+  & input {
+    width: 100%;
+  }
+}
+
 .post-container {
   width: 300px;
 }

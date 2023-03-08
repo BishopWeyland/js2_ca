@@ -33,9 +33,9 @@ signInUser.addEventListener("submit", (e) => {
     password: signInUser.password.value,
   };
 
-  registerUser(`${API_BASE_URL}/api/v1/auction/auth/login`, userData);
+  registerUser(`${API_BASE_URL}/api/v1/social/auth/login`, userData);
 });
 
-// willand_test
-// willand-test@noroff.no
-// willandpass123
+// willand_test2
+// willand-test2@noroff.no
+// willandpass1232

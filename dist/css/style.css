@@ -173,6 +173,13 @@ textarea:focus {
   margin-right: 5rem;
 }
 
+form {
+  margin-bottom: 30px;
+}
+form input {
+  width: 100%;
+}
+
 .post-container {
   width: 300px;
 }
