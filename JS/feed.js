@@ -17,6 +17,29 @@ async function getWithToken(url) {
     console.log(json);
     feed.innerHTML = "";
 
+    function search(json) {
+      const searchForm = document.querySelector("form#search-form");
+
+      searchForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const searchTerm = form.term.value;
+        const term = searchTerm.toLowerCase();
+        const filteredPosts = json.filter((json) => {
+          const author = json.author.name.toLowerCase();
+          const title = json.title.toLowerCase();
+          const body = json.body.toLowerCase();
+
+          return (
+            author.includes(term) || title.includes(term) || body.includes(term)
+          );
+        });
+        console.log(filteredPosts);
+      });
+    }
+
+    search(json);
+
     for (let i = 0; i < json.length; i++) {
       feed.innerHTML += `
       <div class="post">
