@@ -17,9 +17,10 @@ async function getWithToken(url) {
     console.log(json);
     feed.innerHTML = "";
 
+    const searchInput = document.querySelector("#search-input");
+
     function search(json) {
       const searchForm = document.querySelector("form#search-form");
-
       searchForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const form = e.target;
@@ -35,13 +36,30 @@ async function getWithToken(url) {
           );
         });
         console.log(filteredPosts);
+        for (let i = 0; i < filteredPosts.length; i++) {
+          feed.innerHTML += `
+      <div class="post">
+        <div class="user-info">
+            <img src="${filteredPosts[i].author.avatar}">
+            <h2>${filteredPosts[i].author.name}</h2>
+        </div>
+         <a href="single-entry.html?id=${filteredPosts[i].id}">
+             <p>${filteredPosts[i].title}</p>
+            <p>${filteredPosts[i].body}</p>
+         </a>
+      </div>`;
+        }
       });
     }
+    if (searchInput.value == 0) {
+      search(json);
+    } else {
+      allPosts();
+    }
 
-    search(json);
-
-    for (let i = 0; i < json.length; i++) {
-      feed.innerHTML += `
+    function allPosts() {
+      for (let i = 0; i < json.length; i++) {
+        feed.innerHTML += `
       <div class="post">
         <div class="user-info">
             <img src="${json[i].author.avatar}">
@@ -52,6 +70,7 @@ async function getWithToken(url) {
             <p>${json[i].body}</p>
          </a>
       </div>`;
+      }
     }
   } catch (error) {
     console.log(error);
