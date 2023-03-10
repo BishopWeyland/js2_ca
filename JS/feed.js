@@ -14,64 +14,55 @@ async function getWithToken(url) {
 
     const response = await fetch(url, fetchOptions);
     const json = await response.json();
-    console.log(json);
-    feed.innerHTML = "";
 
-    const searchInput = document.querySelector("#search-input");
+    let filteredData = json;
 
-    function search(json) {
-      const searchForm = document.querySelector("form#search-form");
-      searchForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const searchTerm = form.term.value;
-        const term = searchTerm.toLowerCase();
-        const filteredPosts = json.filter((json) => {
-          const author = json.author.name.toLowerCase();
-          const title = json.title.toLowerCase();
-          const body = json.body.toLowerCase();
-
+    const searchForm = document.querySelector("#search-input");
+    searchForm.addEventListener("keyup", (e) => {
+      const searchTerm = e.target.value.toLowerCase();
+      if (searchTerm !== "") {
+        filteredData = json.filter((item) => {
           return (
-            author.includes(term) || title.includes(term) || body.includes(term)
+            item.title.toLowerCase().includes(searchTerm) ||
+            item.author.name.toLowerCase().includes(searchTerm) ||
+            item.body.toLowerCase().includes(searchTerm)
           );
         });
-        console.log(filteredPosts);
-        for (let i = 0; i < filteredPosts.length; i++) {
-          feed.innerHTML += `
-      <div class="post">
-        <div class="user-info">
-            <img src="${filteredPosts[i].author.avatar}">
-            <h2>${filteredPosts[i].author.name}</h2>
-        </div>
-         <a href="single-entry.html?id=${filteredPosts[i].id}">
-             <p>${filteredPosts[i].title}</p>
-            <p>${filteredPosts[i].body}</p>
-         </a>
-      </div>`;
-        }
-      });
-    }
-    if (searchInput.value == 0) {
-      search(json);
-    } else {
-      allPosts();
-    }
-
-    function allPosts() {
-      for (let i = 0; i < json.length; i++) {
-        feed.innerHTML += `
-      <div class="post">
-        <div class="user-info">
-            <img src="${json[i].author.avatar}">
-            <h2>${json[i].author.name}</h2>
-        </div>
-         <a href="single-entry.html?id=${json[i].id}">
-             <p>${json[i].title}</p>
-            <p>${json[i].body}</p>
-         </a>
-      </div>`;
+      } else {
+        filteredData = json;
       }
-    }
+
+      feed.innerHTML = "";
+
+      filteredData.forEach((item) => {
+        feed.innerHTML += `      <div class="post">
+        <div class="user-info">
+            <img src="${item.author.avatar}">
+            <h2>${item.author.name}</h2>
+        </div>
+         <a href="single-entry.html?id=${item.id}">
+             <p>${item.title}</p>
+            <p>${item.body}</p>
+         </a>
+      </div>`;
+      });
+      if (!filteredData.length) {
+        feed.innerHTML = "no results";
+      }
+    });
+
+    json.forEach((item) => {
+      feed.innerHTML += `      <div class="post">
+        <div class="user-info">
+            <img src="${item.author.avatar}">
+            <h2>${item.author.name}</h2>
+        </div>
+         <a href="single-entry.html?id=${item.id}">
+             <p>${item.title}</p>
+            <p>${item.body}</p>
+         </a>
+      </div>`;
+    });
   } catch (error) {
     console.log(error);
   }
