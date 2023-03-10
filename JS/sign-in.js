@@ -16,6 +16,7 @@ async function registerUser(url, data) {
     console.log(json);
     const accessToken = json.accessToken;
     localStorage.setItem(`accessToken`, accessToken);
+    localStorage.setItem(`name`, json.name);
     return json;
   } catch (error) {
     console.log(error);
