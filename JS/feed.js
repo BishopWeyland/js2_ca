@@ -1,10 +1,15 @@
 const API_BASE_URL = "https://api.noroff.dev";
 const feed = document.querySelector(".feed-container");
 
+const token = localStorage.getItem("accessToken");
+const userName = localStorage.getItem("name");
+
+if (!token) {
+  window.location.href = "user-log-on.html";
+}
+
 async function getWithToken(url) {
   try {
-    const token = localStorage.getItem("accessToken");
-    const userName = localStorage.getItem("name");
     const fetchOptions = {
       method: "GET",
       headers: {
@@ -33,65 +38,58 @@ async function getWithToken(url) {
         filteredData = json;
       }
 
-      feed.innerHTML = "";
-
-      filteredData.forEach((item) => {
-        feed.innerHTML += `      <div class="post">
-        <div class="user-info">
-            <img src="${item.author.avatar}">
-            <h2>${item.author.name}</h2>
-        </div>
-         <a href="single-entry.html?id=${item.id}">
-             <p>${item.title}</p>
-            <p>${item.body}</p>
-         </a>
-      </div>`;
-      });
-      if (!filteredData.length) {
-        feed.innerHTML = "no results";
-      }
-    });
-
-    json.forEach((item) => {
-      feed.innerHTML += `
-    <div class="post">
-      <div class="user-info">
-        
-        ${
-          item.author.avatar
-            ? '<img src="${item.author.avatar}">'
-            : '<div class="no-avatar"><i class="fa-solid fa-user"></i></div>'
-        }
-        <h2>${item.author.name}</h2>
-      </div>
-      <a href="single-entry.html?id=${item.id}">
-        <p>${item.title}</p>
-        <p>${item.body}</p>
-      </a>
-      ${item.author.name === userName ? "<button>Delete</button>" : ""}
-    </div>`;
+      renderPosts(filteredData);
     });
 
     function myPosts() {
-      let userPosts = [];
-      for (let i = 0; i < json.length; i++) {
-        if (json[i].author.name === userName) {
-          userPosts.push(json[i]);
-        }
-      }
-      return userPosts;
+      return json.filter((item) => item.author.name === userName);
     }
 
-    console.log(myPosts());
+    const postsSelect = document.querySelector("#select-posts");
+
+    postsSelect.addEventListener("change", (e) => {
+      if (e.target.value === "my-posts") {
+        filteredData = myPosts();
+      } else {
+        filteredData = json;
+      }
+
+      renderPosts(filteredData);
+    });
+
+    function renderPosts(posts) {
+      feed.innerHTML = "";
+      if (!posts.length) {
+        feed.innerHTML = "no results";
+      } else {
+        posts.forEach((item) => {
+          const avatar = item.author.avatar
+            ? `<img src="${item.author.avatar}"/>`
+            : '<div class="no-avatar"><i class="fa-solid fa-user"></i></div>';
+          const deleteButton =
+            item.author.name === userName ? "<button>Delete</button>" : "";
+          const media = item.media ? `<img src="${item.media}"/>` : "";
+          feed.innerHTML += `
+            <div class="post">
+              <div class="user-info">
+                ${avatar}
+                <h2>${item.author.name}</h2>
+              </div>
+              <a href="single-entry.html?id=${item.id}">
+                <p>${item.title}</p>
+                ${media}
+                <p>${item.body}</p>
+              </a>
+              ${deleteButton}
+            </div>`;
+        });
+      }
+    }
+
+    renderPosts(filteredData);
   } catch (error) {
     console.log(error);
   }
-
-  const postsSelect = document.querySelector("#select-posts");
-  const selectPosts = (e) => {
-    if ((postsSelect.value = "my-posts")) {
-    }
-  };
 }
 
 getWithToken(`${API_BASE_URL}/api/v1/social/posts/?_author=true`);

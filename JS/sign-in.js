@@ -21,7 +21,7 @@ async function registerUser(url, data) {
   } catch (error) {
     console.log(error);
   } finally {
-    window.location.href = "feed.html";
+    window.location.href = "index.html";
   }
 }
 
