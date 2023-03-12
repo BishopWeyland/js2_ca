@@ -144,6 +144,7 @@ textarea {
   }
 
   & .hero-btn {
+    font-size: 15px;
     display: inline-block;
     width: 150px;
     height: 50px;
@@ -167,17 +168,9 @@ textarea {
 
 // feed
 
-.menu-ul {
+.sign-out-btn {
   & i {
     font-size: 1.5rem;
-  }
-
-  & ul {
-    display: flex;
-  }
-
-  & li {
-    margin-right: 5rem;
   }
 }
 
@@ -246,4 +239,20 @@ form {
     color: map-get($colours, background);
     font-size: 40px;
   }
+}
+
+.edit-menu {
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  transform: translateX(2000px);
+  transition: all 0.5s ease-in-out;
+}
+
+.edit-menu-show {
+  transform: translateX(0);
 }

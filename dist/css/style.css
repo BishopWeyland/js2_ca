@@ -157,6 +157,7 @@ textarea:focus {
   margin-bottom: 2rem;
 }
 .hero-container .hero-btn {
+  font-size: 15px;
   display: inline-block;
   width: 150px;
   height: 50px;
@@ -174,14 +175,8 @@ textarea:focus {
   margin: 5rem 0rem 1rem;
 }
 
-.menu-ul i {
+.sign-out-btn i {
   font-size: 1.5rem;
-}
-.menu-ul ul {
-  display: flex;
-}
-.menu-ul li {
-  margin-right: 5rem;
 }
 
 form {
@@ -247,6 +242,22 @@ form input {
 .no-avatar i {
   color: #25434d;
   font-size: 40px;
+}
+
+.edit-menu {
+  place-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  transform: translateX(2000px);
+  transition: all 0.5s ease-in-out;
+}
+
+.edit-menu-show {
+  transform: translateX(0);
 }
 
 /*# sourceMappingURL=style.css.map */

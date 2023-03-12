@@ -66,7 +66,7 @@ async function getWithToken(url) {
             : '<div class="no-avatar"><i class="fa-solid fa-user"></i></div>';
           const editButton =
             item.author.name === userName
-              ? '<button><i class="fa-solid fa-ellipsis"></i></button>'
+              ? '<button class"edit-posts"><i class="fa-solid fa-ellipsis"></i></button>'
               : "";
           const media = item.media ? `<img src="${item.media}"/>` : "";
           feed.innerHTML += `
@@ -90,8 +90,6 @@ async function getWithToken(url) {
     }
 
     renderPosts(filteredData);
-
-    const editMenu = document.querySelector(".edit-menu");
   } catch (error) {
     console.log(error);
   }
