@@ -26,7 +26,7 @@ const getPost = async function (url) {
       },
     });
     const item = await res.json();
-    console.log(item);
+
     const postContainer = document.querySelector(".post-container");
     item.author.name === userName
       ? ""
@@ -54,7 +54,7 @@ const getPost = async function (url) {
             </div>`;
     title.innerHTML = `${item.title} | Page`;
   } catch (error) {
-    console.log(error);
+    error;
   }
 };
 
