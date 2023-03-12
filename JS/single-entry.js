@@ -17,21 +17,55 @@ const getPost = async function (url) {
         Authorization: `Bearer ${token}`,
       },
     });
-    const json = await res.json();
-    console.log(json);
+    const item = await res.json();
+    console.log(item);
+    const deleteButton =
+      item.author.name === userName
+        ? '<button class="delete-posts btn">Delete</button>'
+        : "";
 
+    const avatar = item.author.avatar
+      ? `<img src="${item.author.avatar}"/>`
+      : '<div class="no-avatar"><i class="fa-solid fa-user"></i></div>';
+
+    const media = item.media ? `<img src="${item.media}"/>` : "";
     singlePost.innerHTML = `
-      <div class="post">
-        <div class="user-info">
-            <img src="${json.author.avatar}">
-            <h2>${json.author.name}</h2>
-        </div>
-             <p>${json.title}</p>
-            <p>${json.body}</p>
-      </div>`;
+            <div class="post">
+                <div class="user-info-container">
+                    <div class="user-info">
+                        ${avatar}
+                        <h2>${item.author.name}</h2>
+                    </div> 
+                    
+                </div>
+                <a href="single-entry.html?id=${item.id}">
+                <p class="title">${item.title}</p>
+                ${media}
+                <p>${item.body}</p>
+                </a>
+              <div>${deleteButton}</div>
+            </div>`;
+
+    deleteButton.addEventlistener("click", () => {
+      deletePosts(`${API_BASE_URL}/api/v1/social/posts/${id}`);
+    });
   } catch (error) {
     console.log(error);
   }
 };
 
 getPost(`${API_BASE_URL}/api/v1/social/posts/${id}/?_author=true`);
+
+const deletePosts = async function (url) {
+  try {
+    const res = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  } catch {
+    error;
+  }
+};

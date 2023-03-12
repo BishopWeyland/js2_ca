@@ -271,20 +271,8 @@ select {
   font-size: 40px;
 }
 
-.edit-menu {
-  place-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  width: 100%;
-  height: 100%;
-  transform: translateX(2000px);
-  transition: all 0.5s ease-in-out;
-}
-
-.edit-menu-show {
-  transform: translateX(0);
+.delete-posts {
+  background-color: #bc6363;
 }
 
 /*# sourceMappingURL=style.css.map */
