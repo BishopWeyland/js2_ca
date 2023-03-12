@@ -14,6 +14,7 @@ const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
 const singlePost = document.querySelector(".single-entry-container");
+const title = document.querySelector("title");
 
 const getPost = async function (url) {
   try {
@@ -52,6 +53,7 @@ const getPost = async function (url) {
                 <p>${item.body}</p>
                 </a>
             </div>`;
+    title.innerHTML = `${item.title} | Page`;
   } catch (error) {
     console.log(error);
   }
