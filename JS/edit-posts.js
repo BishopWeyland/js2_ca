@@ -35,6 +35,7 @@ const editPost = async (url, data) => {
     throw error;
   } finally {
     postContent.reset();
+    location.reload();
   }
 };
 

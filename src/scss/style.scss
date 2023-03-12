@@ -231,7 +231,7 @@ select {
 }
 
 .feed-h1 {
-  margin: 30px;
+  width: 500px;
 }
 
 .user-info-container {
@@ -281,4 +281,67 @@ select {
 
 .single-entry-container {
   margin-top: 100px;
+}
+
+@media (max-width: 900px) {
+  .layout-margin-nav {
+    margin: 1rem 2rem;
+  }
+
+  .hero-container h1 {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 530px) {
+  body {
+    font-size: map-get($font-size-mobile, small);
+  }
+
+  h1 {
+    font-size: map-get($font-size-mobile, big);
+  }
+
+  h2 {
+    font-size: map-get($font-size-mobile, medium);
+  }
+
+  .post {
+    width: 400px;
+
+    & img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .user-info img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .no-avatar {
+    height: 40px;
+    width: 40px;
+
+    & i {
+      font-size: 30px;
+    }
+  }
+
+  .filter-container {
+    width: 400px;
+  }
+
+  #search-input {
+    width: 200px;
+  }
+
+  .feed-h1 {
+    width: 400px;
+  }
+
+  .hero-container h1 {
+    font-size: 40px;
+  }
 }
