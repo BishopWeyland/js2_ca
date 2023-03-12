@@ -3,7 +3,7 @@
  * @async
  * @function getWithToken
  * Filters data from search form
- * @param {e}
+ * @param
  * Filters data made by author
  * @function myPosts
  */
@@ -37,9 +37,9 @@ async function getWithToken(url) {
       if (searchTerm !== "") {
         filteredData = json.filter((item) => {
           return (
-            item.title.toLowerCase().includes(searchTerm) ||
-            item.author.name.toLowerCase().includes(searchTerm) ||
-            item.body.toLowerCase().includes(searchTerm)
+            (item.title || "").toLowerCase().includes(searchTerm) ||
+            (item.author.name || "").toLowerCase().includes(searchTerm) ||
+            (item.body || "").toLowerCase().includes(searchTerm)
           );
         });
       } else {
@@ -74,10 +74,7 @@ async function getWithToken(url) {
           const avatar = item.author.avatar
             ? `<img src="${item.author.avatar}"/>`
             : '<div class="no-avatar"><i class="fa-solid fa-user"></i></div>';
-          const editButton =
-            item.author.name === userName
-              ? '<button class"edit-posts"><i class="fa-solid fa-ellipsis"></i></button>'
-              : "";
+
           const media = item.media ? `<img src="${item.media}"/>` : "";
           feed.innerHTML += `
             <div class="post">
@@ -86,7 +83,6 @@ async function getWithToken(url) {
                         ${avatar}
                         <h2>${item.author.name}</h2>
                     </div> 
-                    <div>${editButton}</div>
                 </div>
                 <a href="single-entry.html?id=${item.id}">
                 <p class="title">${item.title}</p>

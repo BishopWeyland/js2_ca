@@ -28,10 +28,9 @@ const getPost = async function (url) {
     const item = await res.json();
     console.log(item);
     const postContainer = document.querySelector(".post-container");
-    const removePostForm =
-      item.author.name === userName
-        ? ""
-        : `${(postContainer.style.display = "none")}`;
+    item.author.name === userName
+      ? ""
+      : `${(postContainer.style.display = "none")}`;
 
     const avatar = item.author.avatar
       ? `<img src="${item.author.avatar}"/>`

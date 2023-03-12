@@ -5,10 +5,13 @@
   color: white;
   border: none;
   background-color: #497482;
-  opacity: 0.6;
+
   border-radius: 3px;
   &:focus {
     outline: none;
-    opacity: 1;
+  }
+
+  &::placeholder {
+    color: rgb(195, 195, 195);
   }
 }
