@@ -14,7 +14,7 @@
 body {
   background-color: map-get($colours, background);
   color: white;
-  font-size: 15px;
+  font-size: map-get($font-size, small);
   font-family: "raleway";
 }
 
@@ -22,6 +22,14 @@ h1,
 h2 {
   font-family: "oswald";
   color: white;
+}
+
+h1 {
+  font-size: map-get($font-size, big);
+}
+
+h2 {
+  font-size: map-get($font-size, medium);
 }
 
 ul {
@@ -191,13 +199,20 @@ form {
 .post {
   background-color: map-get($colours, secondary);
   width: 500px;
-  height: 200px;
+  height: fit-content;
   padding: 40px;
   margin-bottom: 20px;
 
   & img {
+    margin: 1rem 0rem;
     max-height: 200px;
   }
+}
+
+.user-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .user-info {
@@ -211,6 +226,10 @@ form {
     object-fit: cover;
     border-radius: 50%;
   }
+}
+
+.title {
+  font-size: map-get($font-size, medium);
 }
 
 .no-avatar {

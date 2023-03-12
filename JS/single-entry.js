@@ -1,11 +1,10 @@
+import { API_BASE_URL, token, userName } from "./index.js";
+
 const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);
 
 const id = params.get("id");
-
-const url = ` https://api.noroff.dev/api/v1/social/posts/${id}/?_author=true`;
-const postWithToken = localStorage.getItem("accessToken");
 
 const singlePost = document.querySelector(".single-entry-container");
 
@@ -15,7 +14,7 @@ const getPost = async function (url) {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${postWithToken}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     const json = await res.json();
@@ -35,4 +34,4 @@ const getPost = async function (url) {
   }
 };
 
-getPost(`${url}`);
+getPost(`${API_BASE_URL}/api/v1/social/posts/${id}/?_author=true`);

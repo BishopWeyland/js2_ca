@@ -1,8 +1,6 @@
-const API_BASE_URL = "https://api.noroff.dev";
-const feed = document.querySelector(".feed-container");
+import { API_BASE_URL, token, userName } from "./index.js";
 
-const token = localStorage.getItem("accessToken");
-const userName = localStorage.getItem("name");
+const feed = document.querySelector(".feed-container");
 
 if (!token) {
   window.location.href = "user-log-on.html";
@@ -66,27 +64,34 @@ async function getWithToken(url) {
           const avatar = item.author.avatar
             ? `<img src="${item.author.avatar}"/>`
             : '<div class="no-avatar"><i class="fa-solid fa-user"></i></div>';
-          const deleteButton =
-            item.author.name === userName ? "<button>Delete</button>" : "";
+          const editButton =
+            item.author.name === userName
+              ? '<button><i class="fa-solid fa-ellipsis"></i></button>'
+              : "";
           const media = item.media ? `<img src="${item.media}"/>` : "";
           feed.innerHTML += `
             <div class="post">
-              <div class="user-info">
-                ${avatar}
-                <h2>${item.author.name}</h2>
-              </div>
-              <a href="single-entry.html?id=${item.id}">
-                <p>${item.title}</p>
+                <div class="user-info-container">
+                    <div class="user-info">
+                        ${avatar}
+                        <h2>${item.author.name}</h2>
+                    </div> 
+                    <div>${editButton}</div>
+                </div>
+                <a href="single-entry.html?id=${item.id}">
+                <p class="title">${item.title}</p>
                 ${media}
                 <p>${item.body}</p>
-              </a>
-              ${deleteButton}
+                </a>
+              
             </div>`;
         });
       }
     }
 
     renderPosts(filteredData);
+
+    const editMenu = document.querySelector(".edit-menu");
   } catch (error) {
     console.log(error);
   }
