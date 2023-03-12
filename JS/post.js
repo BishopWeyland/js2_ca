@@ -1,5 +1,4 @@
-const URL = "https://api.noroff.dev";
-const token = localStorage.getItem("accessToken");
+import { API_BASE_URL, token } from "./index.js";
 
 const createPost = async (url, data) => {
   if (!token) {
@@ -38,5 +37,5 @@ postContent.addEventListener("submit", (e) => {
     body: postContent.body.value,
   };
 
-  createPost(`${URL}/api/v1/social/posts`, postData);
+  createPost(`${API_BASE_URL}/api/v1/social/posts`, postData);
 });
