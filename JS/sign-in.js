@@ -1,6 +1,6 @@
-const API_BASE_URL = "https://api.noroff.dev";
+import { API_BASE_URL, token } from "./index.js";
 
-async function registerUser(url, data) {
+async function signIn(url, data) {
   try {
     const postData = {
       method: "POST",
@@ -17,11 +17,12 @@ async function registerUser(url, data) {
     const accessToken = json.accessToken;
     localStorage.setItem(`accessToken`, accessToken);
     localStorage.setItem(`name`, json.name);
+    if (accessToken) {
+      window.location.href = "index.html";
+    }
     return json;
   } catch (error) {
     console.log(error);
-  } finally {
-    window.location.href = "index.html";
   }
 }
 
@@ -34,7 +35,7 @@ signInUser.addEventListener("submit", (e) => {
     password: signInUser.password.value,
   };
 
-  registerUser(`${API_BASE_URL}/api/v1/social/auth/login`, userData);
+  signIn(`${API_BASE_URL}/api/v1/social/auth/login`, userData);
 });
 
 // willand_test2

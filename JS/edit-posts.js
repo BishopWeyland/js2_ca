@@ -40,3 +40,27 @@ postContent.addEventListener("submit", (e) => {
 
   editPost(`${API_BASE_URL}/api/v1/social/posts/${id}`, postData);
 });
+
+const deleteButton = document.querySelector(".delete-posts");
+
+const deletePosts = async (url) => {
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    error;
+  } finally {
+    window.location.href = "index.html";
+  }
+};
+
+deleteButton.addEventListener("click", () => {
+  deletePosts(`${API_BASE_URL}/api/v1/social/posts/${id}`);
+});
