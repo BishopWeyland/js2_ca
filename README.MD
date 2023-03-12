@@ -1,3 +1,5 @@
+![image](./readme/Skjermbilde%202023-03-12%20kl.%2022.02.58.png)
+
 Course Asignment for JS2
 
 ## Description
