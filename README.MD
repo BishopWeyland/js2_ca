@@ -36,9 +36,9 @@ Required features
 
 - [LinkedIn](https://www.linkedin.com/in/h%C3%A5kon-willand-engebretsen-03148a229/)
 
-## Trello
+## Planning
 
-- [trello] (https://trello.com/b/WvL43jg1/js2-ca)
+- [Trello](https://trello.com/b/WvL43jg1/js2-ca)
 
 ## Acknowledgments
 
