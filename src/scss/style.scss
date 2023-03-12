@@ -197,7 +197,7 @@ form {
   width: 500px;
   height: fit-content;
   padding: 40px;
-  margin: 40px 0px;
+  margin-bottom: 20px;
 
   & img {
     margin: 1rem 0rem;
@@ -276,4 +276,9 @@ select {
 
 .delete-posts {
   background-color: #bc6363;
+}
+
+.single-entry-container {
+  padding-top: 100px;
+  height: 1000px;
 }

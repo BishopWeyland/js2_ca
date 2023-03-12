@@ -26,18 +26,13 @@ const getPost = async function (url) {
         ? ""
         : `${(postContainer.style.display = "none")}`;
 
-    const deleteButton =
-      item.author.name === userName
-        ? '<button class="delete-posts btn">Delete</button>'
-        : "";
-
     const avatar = item.author.avatar
       ? `<img src="${item.author.avatar}"/>`
       : '<div class="no-avatar"><i class="fa-solid fa-user"></i></div>';
 
     const media = item.media ? `<img src="${item.media}"/>` : "";
     singlePost.innerHTML = `
-            <div class="post">
+            <div class="post single-post">
                 <div class="user-info-container">
                     <div class="user-info">
                         ${avatar}
@@ -50,29 +45,10 @@ const getPost = async function (url) {
                 ${media}
                 <p>${item.body}</p>
                 </a>
-              <div>${deleteButton}</div>
             </div>`;
-
-    deleteButton.addEventlistener("click", () => {
-      deletePosts(`${API_BASE_URL}/api/v1/social/posts/${id}`);
-    });
   } catch (error) {
     console.log(error);
   }
 };
 
 getPost(`${API_BASE_URL}/api/v1/social/posts/${id}/?_author=true`);
-
-const deletePosts = async function (url) {
-  try {
-    const res = await fetch(url, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
-  } catch {
-    error;
-  }
-};
