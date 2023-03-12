@@ -114,9 +114,12 @@ label {
 
 input {
   @include input-style;
+  height: 35px;
+  width: 100%;
 }
 
 textarea {
+  height: 90px;
   resize: none;
   @include input-style;
 }
@@ -200,6 +203,34 @@ form {
     margin: 1rem 0rem;
     max-height: 200px;
   }
+}
+
+.filter-container {
+  margin: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+}
+
+select {
+  background-color: initial;
+  width: auto;
+  padding: unset;
+  border: none;
+  border-radius: 0;
+  height: auto;
+}
+
+#select-posts {
+  color: white;
+  background-color: map-get($colours, secondary);
+  padding: 10px 20px;
+  border-radius: 5px;
+  height: 35px;
+}
+
+.feed-h1 {
+  margin: 30px;
 }
 
 .user-info-container {

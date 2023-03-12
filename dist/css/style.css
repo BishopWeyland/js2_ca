@@ -111,9 +111,9 @@ input {
   border: none;
   background-color: #497482;
   opacity: 0.6;
-  height: 35px;
-  width: 500px;
   border-radius: 3px;
+  height: 35px;
+  width: 100%;
 }
 input:focus {
   outline: none;
@@ -121,6 +121,7 @@ input:focus {
 }
 
 textarea {
+  height: 90px;
   resize: none;
   font-size: 20px;
   padding-left: 10px;
@@ -128,8 +129,6 @@ textarea {
   border: none;
   background-color: #497482;
   opacity: 0.6;
-  height: 35px;
-  width: 500px;
   border-radius: 3px;
 }
 textarea:focus {
@@ -204,6 +203,34 @@ form input {
 .post img {
   margin: 1rem 0rem;
   max-height: 200px;
+}
+
+.filter-container {
+  margin: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+}
+
+select {
+  background-color: initial;
+  width: auto;
+  padding: unset;
+  border: none;
+  border-radius: 0;
+  height: auto;
+}
+
+#select-posts {
+  color: white;
+  background-color: #497482;
+  padding: 10px 20px;
+  border-radius: 5px;
+  height: 35px;
+}
+
+.feed-h1 {
+  margin: 30px;
 }
 
 .user-info-container {
