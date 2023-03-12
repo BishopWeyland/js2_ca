@@ -1,3 +1,13 @@
+/**
+ * Fetching posts from API
+ * @async
+ * @function getWithToken
+ * Filters data from search form
+ * @param {e}
+ * Filters data made by author
+ * @function myPosts
+ */
+
 import { API_BASE_URL, token, userName } from "./index.js";
 
 const feed = document.querySelector(".feed-container");

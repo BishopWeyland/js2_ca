@@ -1,3 +1,9 @@
+/**
+ * function to create posts
+ * @async
+ * @function createPost
+ */
+
 import { API_BASE_URL, token } from "./index.js";
 
 const createPost = async (url, data) => {

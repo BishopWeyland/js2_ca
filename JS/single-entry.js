@@ -1,3 +1,9 @@
+/**
+ * Queystring params to get id of individual posts.
+ * @async
+ * @function getPost
+ */
+
 import { API_BASE_URL, token, userName } from "./index.js";
 export { id };
 

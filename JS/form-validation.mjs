@@ -1,3 +1,9 @@
+/**
+ * form validation
+ *@function checkLength
+ *@function validateEmail
+ */
+
 export { checkLength, validateEmail };
 
 function checkLength(value, length) {

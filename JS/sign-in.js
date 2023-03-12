@@ -1,3 +1,9 @@
+/**
+ * Sign in user function
+ * @async
+ * @function signIn
+ */
+
 import { API_BASE_URL, token } from "./index.js";
 import { checkLength, validateEmail } from "./form-validation.mjs";
 

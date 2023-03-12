@@ -119,6 +119,7 @@ input {
 }
 
 textarea {
+  padding: 10px;
   height: 90px;
   resize: none;
   @include input-style;

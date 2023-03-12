@@ -1,3 +1,12 @@
+/**
+ * edit post function
+ * @async
+ * @function editPost
+ * delete post function
+ * @async
+ * @function deletePosts
+ */
+
 import { API_BASE_URL, token, userName } from "./index.js";
 import { id } from "./single-entry.js";
 

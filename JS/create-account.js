@@ -1,3 +1,9 @@
+/**
+ * Register user function
+ * @async
+ * @function registerUser
+ */
+
 import { checkLength, validateEmail } from "./form-validation.mjs";
 import { API_BASE_URL } from "./index.js";
 

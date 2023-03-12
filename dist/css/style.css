@@ -105,6 +105,7 @@ label {
 }
 
 input {
+  font-family: "Raleway";
   font-size: 20px;
   padding-left: 10px;
   color: white;
@@ -121,8 +122,10 @@ input:focus {
 }
 
 textarea {
+  padding: 10px;
   height: 90px;
   resize: none;
+  font-family: "Raleway";
   font-size: 20px;
   padding-left: 10px;
   color: white;
