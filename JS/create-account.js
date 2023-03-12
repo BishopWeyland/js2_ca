@@ -43,7 +43,7 @@ createUser.addEventListener("submit", (e) => {
   }
 
   if (!checkLength(password, 8)) {
-    alert("Password needs to be atleast 5 characters!");
+    alert("Password needs to be atleast 8 characters!");
     return;
   }
   if (!validateEmail(email)) {

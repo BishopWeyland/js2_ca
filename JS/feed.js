@@ -12,7 +12,7 @@ import { API_BASE_URL, token, userName } from "./index.js";
 
 const feed = document.querySelector(".feed-container");
 
-if (!token) {
+if (!token || token === undefined) {
   window.location.href = "user-log-on.html";
 }
 
@@ -77,20 +77,20 @@ async function getWithToken(url) {
 
           const media = item.media ? `<img src="${item.media}"/>` : "";
           feed.innerHTML += `
-            <div class="post">
+            <a href="single-entry.html?id=${item.id}" class="post">
                 <div class="user-info-container">
                     <div class="user-info">
                         ${avatar}
                         <h2>${item.author.name}</h2>
                     </div> 
                 </div>
-                <a href="single-entry.html?id=${item.id}">
+                <div>
                 <p class="title">${item.title}</p>
                 ${media}
                 <p>${item.body}</p>
-                </a>
+                </div>
               
-            </div>`;
+            </a>`;
         });
       }
     }

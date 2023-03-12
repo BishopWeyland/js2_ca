@@ -312,6 +312,7 @@ select {
   }
   .post p {
     width: 100px;
+    word-break: break-all;
   }
   .user-info img {
     height: 40px;

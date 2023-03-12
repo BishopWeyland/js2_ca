@@ -57,7 +57,3 @@ signInUser.addEventListener("submit", (e) => {
 
   signIn(`${API_BASE_URL}/api/v1/social/auth/login`, userData);
 });
-
-// willand_test2
-// willand-test2@noroff.no
-// willandpass1232
