@@ -54,7 +54,7 @@ const getPost = async function (url) {
             </div>`;
     title.innerHTML = `${item.title} | Page`;
   } catch (error) {
-    error;
+    console.log(error);
   }
 };
 

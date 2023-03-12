@@ -97,7 +97,7 @@ async function getWithToken(url) {
 
     renderPosts(filteredData);
   } catch (error) {
-    error;
+    console.log(error);
   }
 }
 
