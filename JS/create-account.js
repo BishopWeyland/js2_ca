@@ -1,4 +1,5 @@
-const API_BASE_URL = "https://api.noroff.dev";
+import { checkLength, validateEmail } from "./form-validation.mjs";
+import { API_BASE_URL } from "./index.js";
 
 async function registerUser(url, data) {
   try {
@@ -13,10 +14,9 @@ async function registerUser(url, data) {
     const response = await fetch(url, postData);
     console.log(response);
     const json = await response.json();
-    console.log(json);
     return json;
   } catch (error) {
-    console.log(error);
+    alert("We are sorry an error had occured!", error);
   } finally {
     window.location.href = "sign-in.html";
   }
@@ -26,10 +26,29 @@ const createUser = document.querySelector("#create-user-form");
 
 createUser.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  const username = createUser.username.value.trim();
+  const email = createUser.email.value.trim();
+  const password = createUser.password.value.trim();
+
+  if (!checkLength(username, 5)) {
+    alert("Username needs to be atleast 5 characters!");
+    return;
+  }
+
+  if (!checkLength(password, 8)) {
+    alert("Password needs to be atleast 5 characters!");
+    return;
+  }
+  if (!validateEmail(email)) {
+    alert("You must use a noroff e-mail!");
+    return;
+  }
+
   const userData = {
-    name: createUser.username.value,
-    email: createUser.email.value,
-    password: createUser.password.value,
+    name: username,
+    email: email,
+    password: password,
   };
 
   registerUser(`${API_BASE_URL}/api/v1/social/auth/register`, userData);

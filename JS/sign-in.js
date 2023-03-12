@@ -1,4 +1,5 @@
 import { API_BASE_URL, token } from "./index.js";
+import { checkLength, validateEmail } from "./form-validation.mjs";
 
 async function signIn(url, data) {
   try {
@@ -22,7 +23,7 @@ async function signIn(url, data) {
     }
     return json;
   } catch (error) {
-    console.log(error);
+    alert("We are sorry an error had occured!", error);
   }
 }
 
@@ -30,9 +31,22 @@ const signInUser = document.querySelector("#sign-in-user");
 
 signInUser.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  const email = signInUser.email.value.trim();
+  const password = signInUser.password.value.trim();
+
+  if (!checkLength(password, 8)) {
+    alert("Password needs to be atleast 5 characters!");
+    return;
+  }
+  if (!validateEmail(email)) {
+    alert("You must use a noroff e-mail!");
+    return;
+  }
+
   const userData = {
-    email: signInUser.email.value,
-    password: signInUser.password.value,
+    email: email,
+    password: password,
   };
 
   signIn(`${API_BASE_URL}/api/v1/social/auth/login`, userData);
