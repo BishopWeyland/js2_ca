@@ -1,0 +1,17 @@
+@mixin input-style {
+  font-family: "Raleway";
+  font-size: 20px;
+  padding-left: 10px;
+  color: white;
+  border: none;
+  background-color: #497482;
+
+  border-radius: 3px;
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: rgb(195, 195, 195);
+  }
+}

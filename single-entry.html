@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page</title>
+    <title>Single post</title>
      <meta
       name="description"
-      content="A social network where you can create posts and view other people's posts."
+      content="View a single post or edit and delte your posts!"
     />
     <meta
       name="keywords"
-      content="page, social, network, posts, friends, "
+      content="page, social, network, posts, friends"
     />
     <link rel="stylesheet" href="dist/css/style.css" />
     <script
@@ -25,13 +25,14 @@
         <a href="index.html" class="logo">
           <i class="fa-solid fa-note-sticky"></i><span>Page.</span>
         </a>
-        <div class="sign-out-btn">
+      <div class="sign-out-btn">
        <button class="sign-out"><i class="fa-solid fa-user"></i> Sign-out</button>
         </div>
       </nav>
     </div>
     <div class="justify-align-center">
       <div class="post-container">
+        <h1>Edit posts</h1>
         <form action="" id="create-post">
               <div class="form-control flex-column">
                         <input name="title" id="title" placeholder="Post title.">
@@ -45,36 +46,18 @@
               rows="10"
             ></textarea>
           </div>
-          <input type="submit" value="Post" id="post-button" class="btn" />
+          <input type="submit" value="Edit" id="post-button" class="btn" />
         </form>
+        <button class="delete-posts btn">Delete</button>
       </div>
     </div>
     <div class="justify-align-center">
-          <div class="feed-h1"><h1>Feed</h1></div>
+      <div class="single-entry-container"></div>
     </div>
-    <div class="justify-align-center">
-      <div class="filter-container">
-        <form action="" id="search-form">
-            <input type="search" placeholder="Search" id="search-input" name="term">
-        </form>
-
-        <select name="select-posts" id="select-posts" value="all-posts">
-            <option value="all-posts">All posts</option>
-            <option value="my-posts">My posts</option>
-        </select>
-
-        </div>
-    </div>
-    
-    <div class="justify-align-center">
-      
-      <div class="feed-container"></div>
-      
-    </div>
-    <script src="./JS/index.js" type="module"></script>
-    <script src="./JS/feed.js" type="module"></script>
-    <script src="./JS/post.js" type="module"></script>
     <script src="./JS/sign-out.js"></script>
+    <script src="./JS/index.js" type="module"></script>
+    <script src="./JS/single-entry.js" type="module"></script>
+     <script src="./JS/edit-posts.js" type="module"></script>
   </body>
   </body>
 </html>

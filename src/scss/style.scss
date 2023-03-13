@@ -1,3 +1,353 @@
+@import "variables";
+@import "mixin";
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Raleway&display=swap");
+//Global styles
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: map-get($colours, background);
+  color: white;
+  font-size: map-get($font-size, small);
+  font-family: "raleway";
+}
+
+h1,
+h2 {
+  font-family: "oswald";
+  color: white;
+}
+
 h1 {
-  color: red;
+  font-size: map-get($font-size, big);
+}
+
+h2 {
+  font-size: map-get($font-size, medium);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.btn {
+  background-color: map-get($colours, primary);
+  opacity: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  height: 35px;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+}
+
+.btn-secondary {
+  background-color: map-get($colours, secondary);
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.link-underline {
+  margin-top: 1rem;
+  border-bottom: 2px solid map-get($colours, primary);
+
+  &:hover {
+    border-bottom: 2px solid white;
+  }
+}
+
+.layout-margin-nav {
+  margin: 1rem 10rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & i {
+    font-size: 4rem;
+    margin-right: 1rem;
+    color: map-get($colours, primary);
+  }
+
+  & span {
+    font-family: "oswald";
+    color: white;
+    font-size: 2rem;
+  }
+}
+
+.form-control {
+  margin: 35px 0px;
+}
+
+label {
+  margin-bottom: 10px;
+  color: white;
+}
+
+input {
+  @include input-style;
+  height: 35px;
+  width: 100%;
+}
+
+textarea {
+  padding: 10px;
+  height: 90px;
+  resize: none;
+  @include input-style;
+}
+
+.justify-align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+//index
+
+.hero-container {
+  height: 50vh;
+  flex-direction: column;
+
+  & h1 {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+  }
+
+  & .hero-btn {
+    font-size: 15px;
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+  }
+
+  & .sign-in-btn {
+    padding: 20px 42px;
+    border-radius: 20px 0px 0px 20px;
+  }
+
+  & .create-account-btn {
+    padding: 20px 22px;
+    border-radius: 0px 20px 20px 0px;
+  }
+}
+
+// sign-in
+.margin-p {
+  margin: 5rem 0rem 1rem;
+}
+
+// feed
+
+.sign-out-btn {
+  & i {
+    font-size: 1.5rem;
+  }
+}
+
+form {
+  margin-bottom: 30px;
+  & input {
+    width: 100%;
+  }
+}
+
+.feed-container {
+  margin-top: 30px;
+}
+
+.post-container {
+  width: 300px;
+}
+
+.post {
+  display: block;
+  background-color: map-get($colours, secondary);
+  width: 500px;
+  height: fit-content;
+  padding: 40px;
+  margin-bottom: 20px;
+
+  & img {
+    margin: 1rem 0rem;
+    max-height: 200px;
+  }
+}
+
+.filter-container {
+  margin: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+}
+
+select {
+  background-color: initial;
+  width: auto;
+  padding: unset;
+  border: none;
+  border-radius: 0;
+  height: auto;
+}
+
+#select-posts {
+  color: white;
+  background-color: map-get($colours, secondary);
+  padding: 10px 0 10px 10px;
+  border-radius: 5px;
+  height: 35px;
+}
+
+.feed-h1 {
+  width: 500px;
+}
+
+.user-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  & img {
+    margin-right: 1rem;
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+
+.title {
+  font-size: map-get($font-size, medium);
+}
+
+.no-avatar {
+  background-color: map-get($colours, primary);
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 1rem 1rem 1rem 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & i {
+    color: map-get($colours, background);
+    font-size: 40px;
+  }
+}
+
+//single entry
+
+.delete-posts {
+  background-color: #bc6363;
+}
+
+.single-entry-container {
+  margin-top: 100px;
+}
+
+@media (max-width: 900px) {
+  .layout-margin-nav {
+    margin: 1rem 2rem;
+  }
+
+  .hero-container h1 {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 530px) {
+  body {
+    font-size: map-get($font-size-mobile, small);
+  }
+
+  h1 {
+    font-size: map-get($font-size-mobile, big);
+  }
+
+  h2 {
+    font-size: map-get($font-size-mobile, medium);
+  }
+
+  .post {
+    width: 400px;
+
+    & img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    p {
+      width: 100px;
+      word-break: break-all;
+    }
+  }
+
+  .user-info img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .no-avatar {
+    height: 40px;
+    width: 40px;
+
+    & i {
+      font-size: 30px;
+    }
+  }
+
+  .filter-container {
+    width: 400px;
+  }
+
+  #search-input {
+    width: 200px;
+  }
+
+  .feed-h1 {
+    width: 400px;
+  }
+
+  .hero-container h1 {
+    font-size: 40px;
+  }
 }
